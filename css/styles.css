@@ -7,13 +7,16 @@
 
 .overlay {
 	position: relative; /* Make it a containing block for absolute positioning */
-	z-index: 1;
 	text-align: center;
 }
 
-.black-box,
-.transparent-text {
-	position: absolute; /* Stack on top of each other */
+.text-container {
+	position: relative; /* Establishes a local stacking context */
+	display: inline-block;
+}
+
+.black-box {
+	position: absolute; /* Positioned relative to text-container */
 	top: 50%; /* Center vertically */
 	left: 50%; /* Center horizontally */
 	transform: translate(-50%, -50%); /* Center both horizontally and vertically */
@@ -21,19 +24,17 @@
 	font-weight: bold;
 	border-radius: 0.5em;
 	padding: 0.25em;
-}
-
-.black-box {
-	color: transparent; /* Text color is transparent */
-	border: solid black;
+	background-color: rgba(0, 0, 0, 0.5);
 	box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.9);
-	background-color: black;
-	z-index: -1; /* Behind the transparent text */
+	width: 100%; /* Adjust width to fit text */
+	height: 100%; /* Adjust height to fit text */
 }
 
 .transparent-text {
-	color: transparent; /* Text is transparent */
-	border: solid black;
-	box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.9);
-	z-index: 1; /* On top of the black box */
+	margin: 0.2em;
+	color: pink;
+	background: transparent;
+	position: relative;
+	z-index: 1;
+	mix-blend-mode: screen;
 }

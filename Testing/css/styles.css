@@ -1,0 +1,22 @@
+body,
+html {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: url("/mountain.jpeg");
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.svg-container {
+	width: 100%; /* Adjust as needed */
+	max-width: 300px; /* Limit the maximum width */
+}
+
+svg {
+	width: 100%;
+	height: auto; /* Ensure SVG scales proportionally */
+}
